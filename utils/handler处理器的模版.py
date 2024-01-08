@@ -3,7 +3,7 @@ import urllib.parse
 import json
 
 #网站路径
-url = "https://weibo.com/ajax/side/hotSearch"
+url = ""
 
 #网站的请求头
 headers = {
@@ -25,12 +25,22 @@ request = urllib.request.Request(url=url,headers=headers)
 # timeout：设置超时时间，单位为秒。
 # version：指定使用的 HTTP 版本。
 
-# #获取响应的数据
-response = urllib.request.urlopen(request)
+
+
+#使用handler  bulid_opener open
+#获取hanlder对象
+handler = urllib.request.HTTPHandler()
+
+#获取opener对象
+opener = urllib.request.build_opener(handler)
+
+#调用open方法
+response = opener.open(request)
+
+#获取响应的数据
 content = response.read().decode("utf-8")
 
 #数据下载
 #open方法默认下使用gbk的便民，如果想要保存汉字，需要指定编码utf-8
-with open("微博热搜.json","w",encoding="utf-8") as fp:
+with open("test.json","w",encoding="utf-8") as fp:
     fp.write(content)
-
