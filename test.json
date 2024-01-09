@@ -1,0 +1,40 @@
+
+
+{"info":{
+   "person" :[
+    {
+      "name": "John",
+      "age": 25,
+      "city": "New York",
+      "country": "USA",
+      "occupation": "Engineer",
+      "hobbies": ["Reading", "Traveling"]
+    },
+    {
+      "name": "Emily",
+      "age": 30,
+      "city": "London",
+      "country": "UK",
+      "occupation": "Designer",
+      "hobbies": ["Painting", "Photography"]
+    },
+    {
+      "name": "bob",
+      "age": 30,
+      "city": "London",
+      "country": "UK",
+      "occupation": "Designer",
+      "hobbies": ["Painting", "Photography"]
+    },
+    {
+      "name": "hangdudu",
+      "age": 30,
+      "city": "London",
+      "country": "UK",
+      "occupation": "Designer",
+      "hobbies": ["Painting", "Photography"]
+    }
+  ],
+  "love":"i love you"
+}
+}
