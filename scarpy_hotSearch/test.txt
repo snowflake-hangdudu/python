@@ -1,0 +1,46 @@
+1.创建爬虫的项目 scrapy startproject $name
+  $name为项目名字， 项目名字不允许使用数字开头，不能包含中文
+
+2.创建爬虫文件
+     在spiders文件夹中创建爬虫文件
+     cd $name\$name\spiders
+     scrapy genspider 爬虫文件的名字，要爬取网页
+     eg:scrapy genspider baidu http:www.baidu.com
+     一般情况下不需要添加http协议 因为start_urls的值是根据allowed_domains修改的 所以添加了http的话,那么start_urls需要手动修改
+
+
+3.运行爬虫代码 
+      scrapy crawl 爬虫的名字
+
+     eg:
+     scrapy crawl baidu
+
+
+
+ 1.scrapy项目结构
+   项目名字
+       项目名字
+           spider文件夹(存储的爬虫文件)
+               init
+           init
+           items   定义数据结构的地方，爬取的数据都包含什么
+           middleware  中间件   代理
+           pipelines  管道   用来处理下载的数据
+           setting  配置文件  robots  ua定义等
+
+ 2.response的属性和方法
+
+ #页面的源码，字符串
+ response.text
+
+#页面的二进制数据
+response.body
+
+#数据列表,直接解析response的内容
+response.xpath('')
+
+#提取seletor的data属性值
+response.extract()   
+
+#提取的seletor列表的第一个数据
+response.extract_first()   
