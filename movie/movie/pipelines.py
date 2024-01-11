@@ -9,5 +9,14 @@ from itemadapter import ItemAdapter
 
 
 class MoviePipeline:
+    def open_spider(self,spider):
+        self.fp = open('movie.json','w',encoding='utf-8')
+
+
     def process_item(self, item, spider):
+      
+
         return item
+    
+    def close_spider(self,spider):
+        self.fp.close()

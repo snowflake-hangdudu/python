@@ -28,13 +28,21 @@ class MovieSpider(scrapy.Spider):
       print(src)
 
 
-      yield scrapy.Request(url=src,callback=self.parse_second)
+      yield scrapy.Request(url=src,callback=self.parse_second,meta={'name':name})
 
  def parse_second(self,response):
    # print('++++++++++++++++++')
    print(response)
-   # src = response.xpath('//div[Zoom]//img/@src').extract_first()
-   # print(src,'src')
+   src = response.xpath('//*[@id="Zoom"]//img/@src').extract_first()
+   #接受到请求的那个meta参数的值
+   name = response.meta['name']
+   print(src,'src')
+
+   movie = MovieItem(src = src,name = name)
+
+   yield movie
+
+
 
 
    
