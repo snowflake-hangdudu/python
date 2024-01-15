@@ -15,4 +15,3 @@ class Item(scrapy.Item):
     hot_value = scrapy.Field()
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass

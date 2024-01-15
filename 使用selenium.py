@@ -4,47 +4,39 @@ import time
 from selenium.webdriver.chrome.options import Options
 # selenium语法全部改变，需重新查找资料
 
-
-<<<<<<< HEAD
-browser = webdriver.Chrome()
-
-#访问网站
-url = 'https://www.baidu.com'
-browser.get(url)
-=======
 driver = webdriver.Chrome()
-
-
-url = "https://www.baidu.com"
-
+#访问网站
+url = 'https://weibo.com/login.php'
 driver.get(url)
 
-#元素定位
-button = driver.find_element(By.ID,"kw")
 
-
-print(button.get_attribute('name'))
-
->>>>>>> aa9e22f6b1f290f7a0a73c8770d633efe14c4e6f
 
 
 
 #获取网页源码
-content = browser.page_source
+content = driver.page_source
+time.sleep(5)
+#输入账号
+zhanghao = driver.find_element(By.XPATH,'//*[@id="loginname"]')
+zhanghao.send_keys('15551359775')
+time.sleep(1)
 
-button = browser.find_element(by='id', value='kw')
+#输入1密码
+password = driver.find_element(By.XPATH,'//*[@id="pl_login_form"]/div/div[3]/div[2]/div/input')
+password.send_keys('hangdudu')
+
+#点击登录
+
+login= driver.find_element(By.XPATH,'//*[@id="pl_login_form"]/div/div[3]/div[6]/a').click()
 
 
-print(button)
-
-#打印网页源码
-# print(content)
+#点击账号输入框
 
 
-time.sleep(10000)
-browser.quit()
+# 打印网页源码
+# print(content,'我是网页源码')
+time.sleep(1000)
+driver.quit()
 
 
-#chrome版本
-# 版本 120.0.6099.217
 

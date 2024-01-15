@@ -31,13 +31,18 @@ request = urllib.request.Request(url=url, headers=headers)
 # 获取响应的数据
 response = urllib.request.urlopen(request)
 
+
+
 # 检查是否使用了gzip压缩
 if response.info().get('Content-Encoding') == 'gzip':
     content = gzip.decompress(response.read()).decode('utf-8')
+    print(content,'我是content')
 else:
     content = response.read().decode('utf-8')
+    print(content,'我是content')
 
 html = etree.HTML(content)
+
 
 list = html.xpath('//div[@action-type="feed_list_item"]')
 # for i in list:
